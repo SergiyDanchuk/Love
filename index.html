@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff8f4">
+  <meta name="description" content="Тепле побажання гарного робочого дня для Анжели від людини, яка її дуже любить.">
+  <title>Для моєї Анжели 💛</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #342c39;
+      --muted: #776d78;
+      --rose: #e98e9a;
+      --coral: #f1a184;
+      --cream: #fff8f4;
+      --card: rgba(255, 255, 255, .78);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 28px 18px;
+      overflow-x: hidden;
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background:
+        radial-gradient(ellipse at 12% 15%, rgba(255, 221, 198, .7), transparent 33%),
+        radial-gradient(ellipse at 90% 82%, rgba(247, 207, 219, .75), transparent 34%),
+        linear-gradient(135deg, #fffaf4 0%, #fff4f2 48%, #fff8f4 100%);
+    }
+
+    .scene {
+      position: relative;
+      width: min(100%, 760px);
+      padding: clamp(30px, 7vw, 68px);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 32px;
+      background: var(--card);
+      box-shadow: 0 24px 80px rgba(118, 75, 89, .12), inset 0 1px 0 #fff;
+      backdrop-filter: blur(12px);
+      animation: arrive .8s ease-out both;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      color: #a3767b;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.8rem, 9vw, 5.6rem);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.055em;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 10px;
+      color: #d77d88;
+      font-style: italic;
+    }
+
+    .heart {
+      display: block;
+      width: 68px;
+      height: 68px;
+      margin: 30px auto 25px;
+      color: #e88691;
+      filter: drop-shadow(0 8px 14px rgba(232, 134, 145, .28));
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    .message {
+      max-width: 530px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 2.4vw, 1.2rem);
+      line-height: 1.8;
+    }
+
+    .message strong { color: #574654; font-weight: 650; }
+
+    .wish {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 29px;
+      padding: 13px 19px;
+      border: 1px solid rgba(224, 157, 143, .32);
+      border-radius: 999px;
+      color: #805d60;
+      background: rgba(255, 247, 241, .8);
+      font-size: .94rem;
+      font-weight: 600;
+    }
+
+    .signature {
+      margin: 29px 0 0;
+      color: #a58d91;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      font-style: italic;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #e5aa81;
+      opacity: .8;
+      user-select: none;
+    }
+    .sparkle.one { top: 11%; left: 10%; font-size: 1.35rem; }
+    .sparkle.two { top: 20%; right: 9%; font-size: 1rem; }
+    .sparkle.three { bottom: 13%; left: 13%; font-size: 1rem; }
+    .sparkle.four { right: 12%; bottom: 12%; font-size: 1.4rem; }
+
+    .flying-heart {
+      position: fixed;
+      z-index: 2;
+      bottom: -36px;
+      left: var(--x);
+      color: var(--heart-color);
+      font-size: var(--size);
+      line-height: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 3px 8px rgba(217, 115, 137, .2));
+      animation: float-up var(--duration) ease-out forwards;
+    }
+
+    .love-pop {
+      position: fixed;
+      z-index: 3;
+      left: clamp(12px, var(--pop-x), calc(100vw - 12px));
+      top: clamp(12px, var(--pop-y), calc(100vh - 12px));
+      width: max-content;
+      max-width: calc(100vw - 24px);
+      padding: 14px 20px;
+      border: 1px solid rgba(255, 255, 255, .9);
+      border-radius: 999px;
+      color: #79515e;
+      background: rgba(255, 255, 255, .94);
+      box-shadow: 0 12px 38px rgba(137, 83, 104, .2);
+      font-size: clamp(.98rem, 4vw, 1.15rem);
+      font-weight: 700;
+      text-align: center;
+      white-space: nowrap;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(.45) rotate(-8deg);
+      opacity: 0;
+      animation: pop-in-out 1.8s cubic-bezier(.2, .8, .25, 1) forwards;
+    }
+
+    @keyframes arrive {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    @keyframes float-up {
+      0% { opacity: 0; transform: translate3d(0, 0, 0) rotate(0deg) scale(.75); }
+      12% { opacity: .9; }
+      80% { opacity: .8; }
+      100% { opacity: 0; transform: translate3d(var(--drift), -115vh, 0) rotate(var(--spin)) scale(1.15); }
+    }
+    @keyframes pop-in-out {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(.45) rotate(-8deg); }
+      16%, 68% { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+      100% { opacity: 0; transform: translate(-50%, -75%) scale(.82) rotate(5deg); }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 18px 14px; }
+      .scene { border-radius: 25px; }
+      .heart { width: 58px; height: 58px; margin: 25px auto 20px; }
+      .sparkle.one { left: 7%; }
+      .sparkle.two { right: 7%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+      .flying-heart { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="scene" aria-labelledby="greeting">
+    <span class="sparkle one" aria-hidden="true">✦</span>
+    <span class="sparkle two" aria-hidden="true">✧</span>
+    <span class="sparkle three" aria-hidden="true">✧</span>
+    <span class="sparkle four" aria-hidden="true">✦</span>
+
+    <p class="eyebrow">маленьке нагадування на сьогодні</p>
+    <h1 id="greeting">Я тебе люблю,<span>Кохана</span></h1>
+
+    <svg class="heart" viewBox="0 0 64 64" role="img" aria-label="Серце">
+      <path fill="currentColor" d="M32 56S6 40 6 22C6 12 18 6 27 15l5 5 5-5c9-9 21-3 21 7 0 18-26 34-26 34Z"/>
+      <path fill="#fff8f4" d="M17 20c1-3 4-5 7-4 1 0 2 1 3 2-3-1-6 0-8 3-1 2-2 4-2 7-2-2-2-5 0-8Z" opacity=".8"/>
+    </svg>
+
+    <p class="message">
+      Нехай сьогодні все складається як найкраще, ми з малою скучаємо)) <strong>Обіймаю тебе</strong>
+      і дуже пишаюся тобою)
+    </p>
+
+    <div class="wish"><span aria-hidden="true">☀️</span> Гарного тобі робочого дня!</div>
+    <p class="signature">Твій люблячий чоловік 💛</p>
+  </main>
+  <script>
+    (() => {
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const hearts = ['💛', '💗', '💕', '💖'];
+      const colors = ['#e98e9a', '#f1a184', '#dca2bd', '#e8b95f'];
+      let lastClick = 0;
+
+      function launchHeart() {
+        if (reducedMotion.matches || document.hidden) return;
+        const heart = document.createElement('span');
+        heart.className = 'flying-heart';
+        heart.setAttribute('aria-hidden', 'true');
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.setProperty('--x', `${Math.random() * 96 + 2}vw`);
+        heart.style.setProperty('--size', `${Math.random() * 15 + 16}px`);
+        heart.style.setProperty('--duration', `${Math.random() * 3 + 6}s`);
+        heart.style.setProperty('--drift', `${Math.random() * 120 - 60}px`);
+        heart.style.setProperty('--spin', `${Math.random() * 50 - 25}deg`);
+        heart.style.setProperty('--heart-color', colors[Math.floor(Math.random() * colors.length)]);
+        document.body.appendChild(heart);
+        heart.addEventListener('animationend', () => heart.remove(), { once: true });
+      }
+
+      function showLovePop(x, y) {
+        const now = Date.now();
+        if (now - lastClick < 450) return;
+        lastClick = now;
+
+        const pop = document.createElement('div');
+        pop.className = 'love-pop';
+        pop.setAttribute('aria-hidden', 'true');
+        pop.innerHTML = '<span>Ти мій улюблений</span><br><span>пончик 🍩💛</span>';
+        pop.style.setProperty('--pop-x', `${x}px`);
+        pop.style.setProperty('--pop-y', `${y}px`);
+        document.body.appendChild(pop);
+        pop.addEventListener('animationend', () => pop.remove(), { once: true });
+
+        if (!reducedMotion.matches) {
+          for (let i = 0; i < 3; i++) window.setTimeout(launchHeart, i * 100);
+        }
+      }
+
+      document.addEventListener('click', (event) => showLovePop(event.clientX, event.clientY));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          showLovePop(window.innerWidth / 2, window.innerHeight / 2);
+        }
+      });
+
+      if (!reducedMotion.matches) {
+        window.setInterval(launchHeart, 700);
+        window.setTimeout(launchHeart, 250);
+      }
+    })();
+  </script>
+</body>
+</html>
