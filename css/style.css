@@ -165,14 +165,13 @@
 
     .boar-character {
       position: absolute;
-      right: -8px;
+      right: -4px;
       bottom: 0;
-      display: block;
-      width: 205px;
-      height: auto;
-      filter: drop-shadow(0 10px 12px rgba(0, 0, 0, .3));
-      transform-origin: 50% 85%;
-      animation: boar-gallop .24s ease-in-out infinite alternate;
+      width: 180px;
+      height: 180px;
+      background: url("../assets/boar-run.png") 0 0 / 400% 200% no-repeat;
+      filter: url("../assets/remove-light-matte.svg#remove-light-matte") drop-shadow(0 8px 8px rgba(0, 0, 0, .3));
+      animation: boar-run-cycle .72s steps(1, end) infinite;
     }
 
     .boar-reveal.still .boar-character { animation: none; }
@@ -296,9 +295,16 @@
       17%, 55% { transform: translateX(12vw); }
       100% { transform: translateX(calc(100vw + 220px)); }
     }
-    @keyframes boar-gallop {
-      from { transform: translateY(1px) rotate(-3deg) scale(.98, 1.02); }
-      to { transform: translateY(-8px) rotate(3deg) scale(1.03, .97); }
+    @keyframes boar-run-cycle {
+      0% { background-position: 0% 0%; }
+      12.5% { background-position: 33.333% 0%; }
+      25% { background-position: 66.667% 0%; }
+      37.5% { background-position: 100% 0%; }
+      50% { background-position: 0% 100%; }
+      62.5% { background-position: 33.333% 100%; }
+      75% { background-position: 66.667% 100%; }
+      87.5% { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
     }
     @keyframes dust-trail {
       0% { opacity: 0; transform: translate(22px, 0) scale(.35); }
@@ -318,7 +324,7 @@
       .sparkle.b { right: 7%; }
       .hint { margin-top: 25px; }
       .boar-runner { width: 155px; height: 150px; }
-      .boar-character { width: min(155px, 43vw); }
+      .boar-character { width: min(155px, 43vw); height: min(155px, 43vw); }
       .boar-speech { left: calc(100% - 30px); font-size: .84rem; padding: 8px 10px; }
     }
 
