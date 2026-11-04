@@ -51,7 +51,7 @@
             <span class="dust-puff" style="--puff-size:26px;--puff-delay:-.15s"></span>
             <span class="dust-puff" style="--puff-size:34px;--puff-delay:-.5s;bottom:24px;left:-8px"></span>
             <span class="dust-puff" style="--puff-size:20px;--puff-delay:-.72s;bottom:7px;left:18px"></span>
-            <span class="boar-character" role="img" aria-label="Кабанчик біжить"></span>
+            <img class="boar-character" src="assets/boar.png" alt="Кабанчик біжить">
           </div>`;
         document.body.appendChild(reveal);
         reveal.addEventListener('animationend', (event) => {
